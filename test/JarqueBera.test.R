@@ -8,14 +8,14 @@
 ##   JarqueBera.test(x,alpha=0.05)
 
 
-JarqueBera.test <- function(variable, alpha = 0.05) {
+JarqueBera.test <- function(data, alpha = 0.05) {
   
-  iT = length(vRes)
+  iT = length(data)
   
-  m1 = mean(vRes)
-  m2 = mean((vRes - m1)^2.0)
-  m3 = mean((vRes - m1)^3.0)
-  m4 = mean((vRes - m1)^4.0)
+  m1 = mean(data)
+  m2 = mean((data - m1)^2.0)
+  m3 = mean((data - m1)^3.0)
+  m4 = mean((data - m1)^4.0)
   
   dS = m3 / m2^(3.0 / 2.0)
   dK = m4 / m2^2.0
@@ -24,8 +24,8 @@ JarqueBera.test <- function(variable, alpha = 0.05) {
   
   dPval = 1.0 - pchisq(dStat, 2)
   
-  dCritical = qchisq(1.0 - dAlpha, 2L)
+  dCritical = qchisq(1.0 - alpha, 2L)
   
-  return(c("Statistic" = dStat, "p-Value" = dPval, "critical" = dCritical))
+  return(c("Statistic" = dStat, "critical" = dCritical, "p-Value" = dPval))
   
 }
