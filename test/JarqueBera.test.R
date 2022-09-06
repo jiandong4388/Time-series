@@ -1,4 +1,14 @@
-JarqueBera.test <- function(vRes, dAlpha = 0.05) {
+## Jarque–Bera test is a goodness-of-fit test of whether sample data have the skewness and kurtosis matching a normal distribution
+## 
+##  Jarque, Carlos M.; Bera, Anil K. (1980). "Efficient tests for normality, homoscedasticity and serial independence of regression residuals". Economics Letters.  
+##   
+
+## Example: 
+##   x <- rnorm(1000,2,3)
+##   JarqueBera.test(x,alpha=0.05)
+
+
+JarqueBera.test <- function(variable, alpha = 0.05) {
   
   iT = length(vRes)
   
