@@ -1,11 +1,11 @@
-LjungBox.test <- function(vRes, vLag = c(10, 15, 20)) {
+LjungBox.test <- function(data, lag = c(10, 15, 20)) {
     
-    iP    = length(vLag)
+    iP    = length(lag)
     mTest = matrix(data = NA, iP, 2L, dimnames =
-                       list(vLag, c("Statistic", "p-Value")))
+                       list(lag, c("Statistic", "p-Value")))
     
     for (p in 1:iP) {
-        Test = Box.test(vRes, vLag[p], type = "Ljung-Box")
+        Test = Box.test(data, lag[p], type = "Ljung-Box")
         mTest[p, ] = c(Test$statistic, Test$p.value)
     }
     
